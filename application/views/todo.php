@@ -42,7 +42,8 @@
                     <tr>
                         <td><?=$todo->title?></td>
                         <td>
-                            <input type="checkbox" class="js-switch" <?=($todo->isComplated == 1 ? 'checked' : '')?> />
+                            <input type="checkbox" data-url="<?=base_url("todo/iscomplatedsetter/$todo->id")?>"
+                                class="js-switch" <?=($todo->isComplated ? 'checked' : '')?> />
                         </td>
                         <td>
                             <a href="<?=base_url("todo/delete/$todo->id")?>" class="btn btn-danger btn-sm">Sil</a>

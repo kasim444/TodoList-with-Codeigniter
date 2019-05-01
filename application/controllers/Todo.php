@@ -39,4 +39,12 @@ class Todo extends CI_Controller
             redirect(base_url());
         }
     }
+
+    public function isComplatedSetter($id)
+    {
+        $complated = ($this->input->post('complated')) ? 1 : 0;
+        $this->todo_model->update($id, array(
+            "isComplated" => $complated
+        ));
+    }
 }

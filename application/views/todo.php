@@ -45,7 +45,7 @@
                             <input type="checkbox" class="js-switch" <?=($todo->isComplated == 1 ? 'checked' : '')?> />
                         </td>
                         <td>
-                            <button class="btn btn-danger btn-sm">Sil</button>
+                            <a href="<?=base_url("todo/delete/$todo->id")?>" class="btn btn-danger btn-sm">Sil</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

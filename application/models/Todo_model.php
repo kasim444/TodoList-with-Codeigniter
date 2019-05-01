@@ -19,4 +19,9 @@ class Todo_model extends CI_Model
 
         return $this->db->insert($this->tableName, $data);
     }
+
+    public function delete($id)
+    {
+        return $this->db->delete($this->tableName, array('id' => $id));
+    }
 }

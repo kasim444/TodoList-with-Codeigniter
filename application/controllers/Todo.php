@@ -31,4 +31,12 @@ class Todo extends CI_Controller
             redirect(base_url());
         }
     }
+
+    public function delete($id)
+    {
+        $deleteTodo = $this->todo_model->delete($id);
+        if ($deleteTodo) {
+            redirect(base_url());
+        }
+    }
 }

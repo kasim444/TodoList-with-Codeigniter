@@ -16,44 +16,39 @@
         </div>
 
         <div class="row" id="insertTodo">
-            <div class="col-md-10">
-                <input type="text" placeholder="Add todos...">
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-primary btn-sm">
-                    Add
-                </button>
-            </div>
+            <form action="<?=base_url("todo/insert")?>" method="post">
+                <div class="col-md-10">
+                    <input type="text" placeholder="Add todos..." name="todo_title">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-sm">
+                        Add
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="row">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Yapılacak</th>
-                        <th>Aktif</th>
-                        <th>İşlem</th>
+                        <th>Todo</th>
+                        <th>Complate</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($todos as $todo) : ?>
                     <tr>
-                        <td>Codeigniter kasmalı</td>
+                        <td><?=$todo->title?></td>
                         <td>
-                            <input type="checkbox" class="js-switch" checked />
+                            <input type="checkbox" class="js-switch" <?=($todo->isComplated == 1 ? 'checked' : '')?> />
                         </td>
                         <td>
                             <button class="btn btn-danger btn-sm">Sil</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Bu hayattan keyif almalı</td>
-                        <td>
-                            <input type="checkbox" class="js-switch" checked />
-                        </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">Sil</button>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
